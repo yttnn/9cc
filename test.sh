@@ -49,5 +49,8 @@ a;"
 assert 6 "a = 2;
 b = 3;
 c = a * b;"
+assert 6 "foo=1;
+bar = 2 + 3;
+foo + bar;"
 
 echo OK

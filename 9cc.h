@@ -47,6 +47,15 @@ struct Node {
   int offset; // offset from base-pointer of local variable
 };
 
+typedef struct LVar LVar; // Local Variable
+
+struct LVar {
+  LVar *next;
+  char *name;
+  int len;
+  int offset;
+};
+
 /*
 noreturn void error(char *fmt, ...) __attribute__((format(printf, 1, 2)));
 noreturn void error_at(char *loc, char *fmt, ...) __attribute__((format(printf, 2, 3)));
@@ -78,3 +87,4 @@ void error_at(char *loc, char *fmt, ...);
 extern Token *token;
 extern char *user_input;
 extern Node *code[100];
+extern LVar *locals;
