@@ -18,3 +18,18 @@ https://www.sigbus.info/compilerbook
   ```
   - ファイル分割も行う
   - step8以降は`9cc.c`の利用をしないため`old`へ退避
+- step9
+  ```
+  program    = stmt*
+  stmt       = expr ";"
+  expr       = assign
+  assign     = equality ("=" assign)?
+  equality   = relational ("==" relational | "!=" relational)*
+  relational = add ("<" add | "<=" add | ">" add | ">=" add)*
+  add        = mul ("+" mul | "-" mul)*
+  mul        = unary ("*" unary | "/" unary)*
+  unary      = ("+" | "-")? primary
+  primary    = num | ident | "(" expr ")"
+  ```
+  - ;=のトークン生成を忘れてた
+  - 本の方では、２項演算子のコード生成がなくなっているように見えるがなぜ？（今回は記述は変えずにやった）
